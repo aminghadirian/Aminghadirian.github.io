@@ -1,1 +1,225 @@
- <h1>Hello World from my phone!</h1>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amin Ghadirian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0f12;
+      --surface: #13161b;
+      --border: #1e2229;
+      --text: #c9cdd6;
+      --muted: #545a66;
+      --accent: #4a9eff;
+      --accent-dim: rgba(74, 158, 255, 0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.25rem;
+      margin-bottom: 4rem;
+      animation: fadeIn 0.5s ease both;
+    }
+
+    header h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    header p {
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .apps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .app-card {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      padding: 1.25rem 1.5rem;
+      transition: background 0.15s, border-color 0.15s;
+      animation: slideUp 0.4s ease both;
+    }
+
+    .app-card:first-child { border-radius: 4px 4px 0 0; }
+    .app-card:last-child  { border-bottom: 1px solid var(--border); border-radius: 0 0 4px 4px; }
+
+    .app-card:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      z-index: 1;
+      position: relative;
+    }
+
+    .app-card:hover + .app-card {
+      border-top-color: var(--accent);
+    }
+
+    .app-row {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .app-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(74,158,255,0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .app-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #e8eaed;
+    }
+
+    .app-desc {
+      margin-top: 0.35rem;
+      font-size: 0.825rem;
+      color: var(--muted);
+      line-height: 1.5;
+      padding-left: 0;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    footer a:hover { color: var(--text); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .app-card:nth-child(1) { animation-delay: 0.05s; }
+    .app-card:nth-child(2) { animation-delay: 0.10s; }
+    .app-card:nth-child(3) { animation-delay: 0.15s; }
+    .app-card:nth-child(4) { animation-delay: 0.20s; }
+    .app-card:nth-child(5) { animation-delay: 0.25s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Amin Ghadirian</h1>
+      <p>aminghadirian.github.io</p>
+    </header>
+
+    <p class="section-label">Tools &amp; Apps</p>
+
+    <div class="apps">
+
+      <a class="app-card" href="https://aminghadirian.github.io/HydroCalc/" target="_blank" rel="noopener">
+        <div class="app-row">
+          <span class="app-tag">Coastal Eng.</span>
+          <span class="app-name">HydroCalc</span>
+        </div>
+        <p class="app-desc">Wave length from period and depth via linear dispersion. Classifies wave theory using the Le Méhaut (1976) applicability diagram.</p>
+      </a>
+
+      <a class="app-card" href="https://aminghadirian.github.io/waveSlammingUncertainty/" target="_blank" rel="noopener">
+        <div class="app-row">
+          <span class="app-tag">Offshore Eng.</span>
+          <span class="app-name">Wave Slamming Uncertainty</span>
+        </div>
+        <p class="app-desc">Probabilistic estimation of the slamming coefficient Cs for breaking waves on offshore monopiles. Combines Wienke-Oumeraci theory with Bayesian and frequentist meta-analysis of 15 published sources.</p>
+      </a>
+
+      <a class="app-card" href="https://aminghadirian.github.io/birdDroppingAEP/" target="_blank" rel="noopener">
+        <div class="app-row">
+          <span class="app-tag">Solar PV</span>
+          <span class="app-name">Bird Dropping AEP Impact</span>
+        </div>
+        <p class="app-desc">Quantifies annual energy production loss from bird dropping soiling on solar PV farms. Literature review of 11 studies plus PVGIS-based calculator.</p>
+      </a>
+
+      <a class="app-card" href="https://aminghadirian.github.io/AutomateNemlig/" target="_blank" rel="noopener">
+        <div class="app-row">
+          <span class="app-tag">Utility</span>
+          <span class="app-name">Nemlig Price Finder</span>
+        </div>
+        <p class="app-desc">Parses a shopping list and searches Nemlig.com for the cheapest matching products. Supports Cookidoo list formatting.</p>
+      </a>
+
+      <a class="app-card" href="https://aminghadirian.github.io/MySudokuTrainer/" target="_blank" rel="noopener">
+        <div class="app-row">
+          <span class="app-tag">Game</span>
+          <span class="app-name">Sudoku Technique Trainer</span>
+        </div>
+        <p class="app-desc">Trains one solving technique at a time through a structured curriculum. Includes hints, pencil marks, undo, and progress tracking.</p>
+      </a>
+
+    </div>
+
+    <footer>
+      <p>Built with plain HTML &mdash; <a href="https://github.com/Aminghadirian" target="_blank" rel="noopener">github.com/Aminghadirian</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
